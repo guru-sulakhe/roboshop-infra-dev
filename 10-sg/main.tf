@@ -65,3 +65,21 @@ resource "aws_security_group_rule" "node_ingress_alb" {
     source_security_group_id = module.ingress_alb_sg.id
     security_group_id = module.node_sg.id
 }
+
+resource "aws_security_group_rule" "node_eks_control_plane" {
+    type = "ingress"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    source_security_group_id = module.eks_control_plane_sg.id
+    security_group_id = module.node_sg.id
+}
+
+resource "aws_security_group_rule" "eks_control_plane_node" {
+    type = "ingress"
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    source_security_group_id = module.node_sg.id
+    security_group_id = module.eks_control_plane_sg.id
+}
