@@ -56,3 +56,12 @@ resource "aws_security_group_rule" "ingress_alb_https" {
     cidr_block = ["0.0.0.0/0"]
     security_group_id = module.ingress_alb_sg.id
 }
+
+resource "aws_security_group_rule" "node_ingress_alb" {
+    type = "ingress"
+    from_port = 30000
+    to_port = 32767
+    protocol = "tcp"
+    source_security_group_id = module.ingress_alb_sg.id
+    security_group_id = module.node_sg.id
+}
