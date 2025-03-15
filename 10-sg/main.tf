@@ -1,9 +1,19 @@
 module "mysql_sg" {
-    source "git::https://github.com/guru-sulakhe/terraform-aws-securitygroup.git"
+    source = "git::https://github.com/guru-sulakhe/terraform-aws-securitygroup.git"
     project_name = var.project_name
     environment = var.environment
-    sg_name = var.sg_name
+    sg_name = "mysql"
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    sg_tags = var.sg_tags
+    sg_tags = var.mysql_sg_tags
+}
+
+module "bastion_sg" {
+    source = "git::https://github.com/guru-sulakhe/terraform-aws-securitygroup.git"
+    project_name = var.project_name
+    environment = var.environment
+    sg_name = "bastion"
+    vpc_id = local.vpc_id
+    common_tags = var.common_tags
+    #sg_tags = var.bastion_sg_tags
 }
