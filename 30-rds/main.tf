@@ -67,7 +67,7 @@ module "records" {
     records = [
         {
             name = "mysql-${var.environment}" #mysql-dev.guru97s.cloud
-            type = CNAME
+            type = "CNAME"
             ttl = 1
             records = [
                 module.db.db_instance_address
