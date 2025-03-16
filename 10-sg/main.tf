@@ -53,7 +53,7 @@ resource "aws_security_group_rule" "ingress_alb_https" {
     from_port = 443
     to_port = 443
     protocol = "tcp"
-    cidr_block = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
     security_group_id = module.ingress_alb_sg.id
 }
 
@@ -80,7 +80,7 @@ resource "aws_security_group_rule" "node_vpc" {
     from_port = 0
     to_port = 0
     protocol = "-1"
-    cidr_block = ["10.0.0.0/16"]
+    cidr_blocks = ["10.0.0.0/16"]
     security_group_id = module.node_sg.id
 }
 
@@ -134,6 +134,6 @@ resource "aws_security_group_rule" "bastion_public" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_block = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
     security_group_id = module.bastion_sg.id
 }
