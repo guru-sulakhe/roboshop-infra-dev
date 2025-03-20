@@ -6,7 +6,7 @@ terraform {
         }
     }
     backend "s3" {
-        bucket = "guru97s-remote-state"
+        bucket = "guru97s-dev"
         key = "roboshop-infra-dev-alb"
         region = "us-east-1"
         dynamodb_table = "guru97s-locking-dynamodb"

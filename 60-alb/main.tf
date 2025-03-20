@@ -55,7 +55,7 @@ module "records" {
   zone_name = var.zone_name #daws81s.online
   records = [
     {
-      name    = "roboshop-${var.environment}" # roboshop-dev.daws81s.online
+      name    = "roboshop-${var.environment}" # roboshop-dev.guru97s.cloud
       type    = "A"
       alias   = {
         name    = module.ingress_alb.dns_name
@@ -96,7 +96,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.daws81s.online
+      values = ["roboshop-${var.environment}.${var.zone_name}"] #roboshop-dev.guru97s.cloud
     }
   }
 }
