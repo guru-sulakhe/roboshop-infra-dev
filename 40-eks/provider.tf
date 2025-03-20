@@ -7,9 +7,9 @@ terraform {
     }
     backend "s3" {
         bucket = "guru97s-remote-state"
-        key = "roboshop-infra-dev-eks"
+        key = "roboshop-infra-dev-rds"
         region = "us-east-1"
-        dynamodb_table = "guru97s-locking-dynamodb"
+        dynamodb_table = 
     }
 }
 provider "aws" {
