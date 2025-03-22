@@ -1,4 +1,4 @@
-data "aws-ssm_parameter" "ingress_alb_sg_id" {
+data "aws_ssm_parameter" "ingress_alb_sg_id" {
     name = "/${var.project_name}/${var.environment}/ingress_alb_sg_id"
 }
 data "aws_ssm_parameter" "vpc_id" {
