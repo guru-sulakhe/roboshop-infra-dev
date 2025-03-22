@@ -52,14 +52,14 @@ resource "aws_lb_listener" "https" {
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
 
-  zone_name = var.zone_name #daws81s.online
+  zone_name = var.zone_name #guru97s.cloud
   records = [
     {
-      name    = "roboshop-${var.environment}" # roboshop-dev.guru97s.cloud
+      name    = "roboshop-${var.environment}" #roboshop-dev.guru97s.cloud
       type    = "A"
       alias   = {
         name    = module.ingress_alb.dns_name
-        zone_id = module.ingress_alb.zone_id # This belongs ALB internal hosted zone, not ours
+        zone_id = module.ingress_alb.zone_id #This belongs ALB internal hosted zone, not ours
       }
       allow_overwrite = true
     }
@@ -91,7 +91,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.roboshop.arn
+    target_group_arn = aws_lb_target_group.roboshop.arn #when user hit the load balancer, it will point to this target-group
   }
 
   condition {
