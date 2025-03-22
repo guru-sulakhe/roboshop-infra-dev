@@ -14,6 +14,12 @@ variable "common_tags" {
     }
 }
 
+variable "frontend_tags" {
+    default = {
+        Component = "frontend"
+    }
+}
+
 variable "zone_name" {
     default = "guru97s.cloud"
 }
