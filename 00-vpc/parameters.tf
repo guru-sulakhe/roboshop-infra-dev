@@ -27,3 +27,5 @@ resource "aws_ssm_parameter" "database_subnet_group_name" {
     type = "String"
     value = module.vpc.database_subnet_group_name
 }
+
+#join() function produces a string by concatinating all of elements of the specified list of strings with the specified seperator
