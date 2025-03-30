@@ -85,7 +85,7 @@ resource "aws_lb_target_group" "roboshop" {
   }
 }
 
-resource "aws_lb_listener_rule" "frontend" {
+resource "aws_lb_listener_rule" "frontend" { #frontend requires internet access, so we are creating a listener rule for frontend
   listener_arn = aws_lb_listener.https.arn
   priority     = 100 # low priority will be evaluated first
 
